@@ -216,9 +216,9 @@ Castle Hill, NSW
   <script>
     (function() {
       const urlParams = new URLSearchParams(window.location.search);
-      const mobile = urlParams.get('mobile');
+      const mobile = urlParams.get('mobile') || urlParams.get('unsub');
       
-      if (window.location.pathname === '/unsub' || urlParams.has('unsub')) {
+      if (urlParams.has('unsub')) {
         const redirectUrl = 'https://bvs14tffc9.execute-api.ap-southeast-2.amazonaws.com/prd/unsub' + 
                            (mobile ? '?mobile=' + encodeURIComponent(mobile) : '');
         window.location.replace(redirectUrl);
